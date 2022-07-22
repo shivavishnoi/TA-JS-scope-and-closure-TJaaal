@@ -6,6 +6,12 @@ function percentage(marks, total) {
 }
 
 // Your code goes here
+let percentage = function (marks, total) {
+  return (marks * 100) / total;
+}
+let percentage = (marks, total)=> {
+  return (marks * 100) / total;
+}
 ```
 
 2. Write Function Declaration or Function Expression next to the function.
@@ -14,6 +20,8 @@ function percentage(marks, total) {
 function percentage(marks, total) {
   return (marks * 100) / total;
 }
+percentage(50, 100)
+percentage
 // Your answer
 ```
 
@@ -50,12 +58,12 @@ function add(a, b) {
   return a + b;
 }
 
-let five = add(2, 3); // Answer
-five = add; // Answer
-five = five(10, 11); // Answer
+let five = add(2, 3); // Answer right
+five = add; // Answer true
+five = five(10, 11); // Answer true
 five = function () {
   return 'Hello';
-}; // Answer
+}; // Answer true
 ```
 
 6. What is the difference between function definition and function call? Explain with an example.
@@ -69,9 +77,11 @@ function hello() {
   console.log('Hello World!');
 }
 
-hello.user = 'Sam'; // valid or invalid
+hello.user = 'Sam'; // valid or invalid valid
 ```
 
 9. What is higher order function explain with an example.
 
-10. Explain what is callback function. Why you can pass a function inside a function?
+10. Explain what is callback function. Why you can pass a function inside a function? yes
+
+
