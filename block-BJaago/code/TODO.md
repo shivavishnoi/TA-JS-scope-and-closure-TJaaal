@@ -74,3 +74,5 @@ function double(num) {
   return num * 2;
 }
 ```
+
+<!-- Daigrams made in notebook with hand -->
