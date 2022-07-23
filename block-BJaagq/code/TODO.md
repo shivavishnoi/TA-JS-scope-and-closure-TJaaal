@@ -14,7 +14,7 @@ function change() {
 
 console.log(species); // 1 human
 change();
-console.log(species); // 2 vampire
+console.log(species); // 2 human // corrected as var is again intiliaing same vairialble and is not reassignmentgit 
 ```
 
 <!-- Put your image below -->
@@ -64,16 +64,16 @@ function main() {
   function inner() {
     var four = 'Four';
 
-    console.log(one); // 1 one
-    console.log(two); // 2 two
-    console.log(three); // 3 three
+    console.log(one); // 1 
+    console.log(two); // 2 
+    console.log(three); // 3 
   }
-  console.log(four); // 4 undefined
+  console.log(four); // 4 four is not defined
   inner();
 }
 
 main();
-console.log(one, two, three, four); // 5 one two three four
+console.log(one, two, three, four); // 5 4 is not defined
 ```
 
 <!-- Put your image below -->
