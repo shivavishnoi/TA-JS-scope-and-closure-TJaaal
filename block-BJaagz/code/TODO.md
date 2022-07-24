@@ -6,7 +6,9 @@
 
 ```js
 function forEach(arr, cb) {
- 
+  arr.reduce((acc, cv, index, array)=>{
+    cb(cv, index, array)
+  })
 }
 
 forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
@@ -21,8 +23,12 @@ forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
 - It should work exactly like array `map` method
 
 ```js
-function map() {
+function map(arr, cb) {
   // Your code goes here
+  return arr.reduce((acc, cv, index, array)=>{
+     acc.push(cb(cv))
+     return acc
+  }, [])
 }
 
 map(['Sam', 'Jon', 'Arya'], (name) => name + name); // ['SamSam', 'JonJon', 'AryaArya']
@@ -35,7 +41,13 @@ map(['Sam', 'Jon', 'Arya'], (name) => name + name); // ['SamSam', 'JonJon', 'Ary
 - It should work exactly like array `filter` method
 
 ```js
-function filter() {
+function filter(arr, cb) {
+  return arr.reduce((acc, cv. i, array)=>{
+    if(cb(cv)){
+      acc.push(cv)
+    }
+    return acc
+  }, [])
   // Your code goes here
 }
 filter(['Sam', 'Jon', 'Arya'], (name) =>
