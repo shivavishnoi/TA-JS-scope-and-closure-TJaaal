@@ -16,6 +16,13 @@ outer('hello')
 2. Write a function `delay` that accepts two arguments, a callback and the wait for the time in milliseconds (1000 ms is 1 second). `delay` should return a function that, when invoked waits for the specified amount of time before executing. (Use setTimeout)
 
 ```js
+function delay(cb, time){
+  return function(){
+    setTimeout(cb, time)
+  }
+}
+let res = delay(()=>console.log('i m cb'), 1000)
+res()
 // Your code goes here
 
 ```
