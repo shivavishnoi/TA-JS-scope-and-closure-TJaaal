@@ -10,9 +10,11 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop(startValue, testFn, updateFn, bodyfn) {
+function loop(startValue, testFn, updateFn, bodyFn) {
   // Your code goes here
-   for(let i = startValue; )
+   for(let i = startValue; testFn(i); i = updateFn(i) ){
+    bodyFn(i)
+   }
 }
 
 loop(
@@ -49,18 +51,15 @@ console.log(reduce(nums, add, 0)); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(array1, array2, array3) {
-  let finalArray = []
-  for(let itemA of array1){
-    for(let itemB of array2){
-      for(let itemC of array3){
-         if(itemA == itemB && itemA == itemC){
-          finalArray.push(itemA)
-      }
-      }
-    }
+function intersection(...arrays) {
+  let first = arrays[0]
+  for(let i =1; i<arrays.length; i++){
+    let second = arrays[i]
+    first = first.filter((elm)=>{
+      return second.includes(elm)
+    })
   }
-  return finalArray
+  return first
 }
 
 // Test
@@ -76,20 +75,24 @@ console.log(
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
-function union(array1, array2, array3) {
-  let finalArray = []
-  function success(array){
-    array.forEach((elm)=>{
-      if(finalArray.indexOf(elm) == -1){
-        finalArray.push(elm)
-      }
-    })
-  }
-  success(array1)
-  success(array2)
-  success(array3)
-  return finalArray
-}
+// My Way
+// function union(...arrays) {
+//   let finalArray = []
+//   for(let array of arrays){
+//       function success(array){
+//     array.forEach((elm)=>{
+//       if(finalArray.indexOf(elm) == -1){
+//         finalArray.push(elm)
+//       }
+//     })
+//   }
+//   success(array)
+//   }
+
+//   return finalArray
+// }
+
+// Mentors way
 
 // Test
 console.log(
