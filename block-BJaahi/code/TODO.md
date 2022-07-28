@@ -65,6 +65,20 @@ var nextMessage = sayHello('Test');
 
 ```js
 // Your code goes here
+//DP
+var username = undefined
+let number;
+function sayHello(name) {
+  return `Hello ${name}`;
+}
+let message;
+var nextMessage = undefined
+//EP
+console.log(username, numbers);
+ username = 'Arya';
+ number = 21; 
+message = hello arya
+nextMessage = hello test
 ```
 
 3.
@@ -86,6 +100,19 @@ var nextMessage = sayHello('Test');
 
 ```js
 // Your code goes here
+//DP
+let username;
+let number;
+let sayHello;
+let message;
+var nextMessage = undefined;
+//EP
+console.log(username, number); //error
+username = 'Arya';
+number = 21;
+message = hello arya
+var nextMessage = hello test;
+
 ```
 
 4.
@@ -108,6 +135,19 @@ var nextMessage = sayHello('Test');
 
 ```js
 // Your code goes here
+let username;
+let number;
+let message;
+let ssayhello;
+var nextMessage = undefined;
+// EP
+username = 'Arya';
+console.log(username, numbers);
+ number = 21;
+ sayHello =  function (name) {
+  return `Hello ${name}`;
+};
+nextMessage = hello text
 ```
 
 5.
@@ -120,7 +160,9 @@ let age = 21;
 ```
 
 <!-- Answer -->
+<!-- undefined
 
+ReferenceError: age is not defined -->
 ```js
 // Your code goes here
 ```
@@ -139,7 +181,9 @@ sayHi();
 ```
 
 <!-- Answer -->
+<!-- undefined
 
+ReferenceError: age is not defined -->
 ```js
 // Your code goes here
 ```
@@ -157,7 +201,7 @@ function sayHi(name) {
 ```
 
 <!-- Answer -->
-
+// undefined age not defined
 ```js
 // Your code goes here
 ```
@@ -175,7 +219,7 @@ let sayHi = function sayHi(name) {
 ```
 
 <!-- Answer -->
-
+// sayHi is not defined
 ```js
 // Your code goes here
 ```
@@ -184,8 +228,8 @@ let sayHi = function sayHi(name) {
 
 ```js
 let num1 = 21;
-console.log(sum);
-var sum = num1 + num2;
+console.log(sum); // undefined
+var sum = num1 + num2; // num2 is not defined
 let num2 = 30;
 ```
 
@@ -199,24 +243,29 @@ let num2 = 30;
 
 ```js
 var num1 = 21;
-
 let sum2 = addAgain(num1, num2, 4, 5, 6);
-
-let add = (a, b, c, d, e) => {
+let addAgain = (a, b, c, d, e) => {
   return a + b + c + d + e;
 };
-function addAgian(a, b) {
+function add(a, b) {
   return a + b;
 }
 let num2 = 200;
-
 let sum = add(num1, num2, 4, 5, 6);
 ```
-
 <!-- Answer -->
-
 ```js
 // Your code goes here
+var num1 = undefined
+let sum2;
+let add;
+function addAgian(a, b) {
+  return a + b;
+}
+let num2;
+let sum;
+//EP
+num1 = 21;
 ```
 
 11.
@@ -234,7 +283,7 @@ let add = (a, b) => {
 };
 ```
 
-<!-- Answer -->
+<!-- Answer -->  add is not defined
 
 ```js
 // Your code goes here
@@ -255,7 +304,7 @@ function add(a, b) {
 }
 ```
 
-<!-- Answer -->
+<!-- Answer --> 121
 
 ```js
 // Your code goes here
