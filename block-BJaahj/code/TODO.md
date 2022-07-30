@@ -4,13 +4,12 @@
 
 ```js
 function objOfMatches(array1, array2, callback) {
-let finalObj = {}
-array1.forEach((elm,i)=>{
-  if(callback(elm)==array2[i]){
-    finalObj[elm] = array2[i]
-  }
-})
-  return finalObj
+  return array1.reduce((acc, cv, i)=>{
+    if(callback(cv) === array2[i]){
+      acc[cv] = array2[i]
+    }
+    return acc
+  }, {})
 }
 
 // TEST
@@ -29,13 +28,12 @@ console.log(
 
 ```js
   function multiMap(arrVals, arrCallbacks) {
-    let final = {}
-    arrVals.forEach((elm)=>{
-      final[elm] = arrCallbacks.map((fun)=>{
-        return fun(elm)
-      })
-    })
-    return final
+   return arrvals.reduce((acc, cv, index)=>{
+     acc[cv] = arrCallbacks.map((fun)=>{
+      return fun(cv)
+     })
+     return acc
+   }, {})
   }
 
   // TEST
@@ -67,27 +65,13 @@ The final output from the third array will be matched agains the same indexed el
 
 ```js
 function objOfMatchesWithArray(array1, array2, callback) {
-  let finalObj = {}
-  let newArray1 = array1.map((elm)=>{
-    return createRes(elm)
-  })
-  function createRes(item){
-    let resArray = []
-    callback.forEach((fun)=>{
-      item = fun(item)
-       resArray.push(item)
-   })
-   return resArray;
-  } 
-  function matchRes(arr){
-    arr.forEach((elm, index)=>{
-      if(elm[elm.length-1] == array2[index]){
-        finalObj[array1[index]] = arr[index]
-      }
-    })
-  }
-  matchRes(newArray1)
- return finalObj;
+   return array1.reduce((acc, cv, index)=>{
+     let result = callback.reduce((acc, fun)=>fun(acc), cv)
+     if(result === array2[index]){
+        acc[cv] = result
+     }
+     return acc
+   }, {})
 }
 
 // TEST
@@ -120,16 +104,13 @@ In the final object the key will be the value form the first array like `hi` and
 
 ```js
 function objOfMatchesWithArray(array1, array2) {
- let finalObj = {}
- function resArray(item){
-     return array2.map((fun)=>{
-         return fun(item)
-     })
- }
- array1.forEach((elm, i)=>{
-  finalObj[elm] = resArray(elm)
- })
- return finalObj
+  return array1.reduce((acc, cv)=>{
+    acc[cv] = array2.reduce((acc, fun)=>{
+      acc.push(fun(cv))
+      return acc
+    }, [])
+    return acc
+  }, {})
 }
 
 // TEST
@@ -173,11 +154,7 @@ The function `schedule` will execute the function at first index after the value
 
 ```js
 function schedule(arrayFun, arrayTime) {
-  function display(){
-    time.forEach((sec, i)=>{
-      setTimeout(arrayTime[i], sec*1000)
-    })
-  }
+   arrayT
 }
 
 function sayHi() {
